@@ -88,7 +88,7 @@ void setup() {
   noStroke();
   size(400,800);
   background(backgroundColor);
-  frameRate(10000);  // 更新速度，最好尽可能大
+  frameRate(10000);  // 设置合适的更新速度。如果想看动态刷新效果，格子小则设置较快的更新速度，格子大则设置较慢的更新速度。更新太快会一闪而过，更新太慢考验耐心。如果只想保存图形，则设置较大的值，但是最好不要在格子太大的情况下同时设置太快的更新速度，以免一次保存太多图形。
 }
 void draw() {
   s = Integer.toBinaryString(n1);
