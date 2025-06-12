@@ -79,14 +79,11 @@ int n1 = offset;  // 当前图上对应二进制数最大值
 String s;  //把十进制数值转换成二进制字符串
 String frameName;  // 保存的图片名称
 boolean r = true;
-float c = 1;
-color c0 = 0;
-color c1 = 255;
 color backgroundColor = 255;
 void setup() {
   smooth();
   noStroke();
-  size(400,800);
+  size(400, 800);
   background(backgroundColor);
   frameRate(10000);  // 设置合适的更新速度。如果想看动态刷新效果，格子小则设置较快的更新速度，格子大则设置较慢的更新速度。更新太快会一闪而过，更新太慢考验耐心。如果只想保存图形，则设置较大的值，但是最好不要在格子太大的情况下同时设置太快的更新速度，以免一次保存太多图形。
 }
@@ -114,7 +111,7 @@ void draw() {
     fill(c);
     rect(cellWidth*(x+b), d * cellHeight, cellWidth, cellHeight);
   }
-  frameName = String.format("黑和白的舞蹈_大小%dx%d_格子尺寸%dx%d_二进制数范围%d到%d_0的颜色%d_1的颜色%d_背景颜色%d.png", width/cellWidth, height/cellHeight, cellWidth, cellHeight, n0, frameCount + offset - 1, c0, c1, backgroundColor);
+  frameName = String.format("黑和白的舞蹈_大小%dx%d_格子尺寸%dx%d_二进制数范围%d到%d_0的颜色255_1的颜色0_背景颜色%d.png", width/cellWidth, height/cellHeight, cellWidth, cellHeight, n0, frameCount + offset - 1, backgroundColor);
   //println(b, d);
   if (b == (width / cellWidth - (width / cellWidth) % distance) - distance && d == height / cellHeight - 1) {
     println(frameCount + offset - 1, s, d, n0, n1);
