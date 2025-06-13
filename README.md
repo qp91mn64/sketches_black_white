@@ -6,8 +6,7 @@
 
 - black_white.pde：黑和白的舞蹈
 - base_3.pde：第三进制
-- base_4.pde：四进制，格子大小3x3的情形
-- base_4_1.pde：四进制，格子大小1x1的情形
+- base_4.pde：四进制的情形
 - random_black_white.pde：随机
 
 ## 代码简介
