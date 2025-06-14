@@ -69,7 +69,7 @@ void setup() {
   noStroke();
   size(390, 798);
   background(backgroundColor);
-  frameRate(100);  // 设置合适的更新速度。如果想看动态刷新效果，格子小则设置较快的更新速度，格子大则设置较慢的更新速度。更新太快会一闪而过，更新太慢考验耐心。如果只想保存图形，则设置较大的值，但是最好不要在格子太大的情况下同时设置太快的更新速度，以免一次保存太多图形。
+  frameRate(10000);  // 设置合适的更新速度。如果想看动态刷新效果，格子小则设置较快的更新速度，格子大则设置较慢的更新速度。更新太快会一闪而过，更新太慢考验耐心。如果只想保存图形，则设置较大的值，但是最好不要在格子太大的情况下同时设置太快的更新速度，以免一次保存太多图形。
   for (int a = 0; a < base; a++) {
     char c1 = color1.charAt(base - a - 1);
     if (c1 == '1') {
@@ -123,7 +123,7 @@ void mousePressed() {
     }
   } else {
     if (mouseButton == RIGHT) {
-      println(frameCount + offset, s, d, n0, n1);
+      println(frameCount + offset - 2, s, d, n0, n1 - 1);
       println(frameName);
       saveFrame(frameName);
     }

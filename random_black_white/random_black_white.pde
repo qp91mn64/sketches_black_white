@@ -110,8 +110,8 @@ void draw() {
     char c2 = s.charAt(s.length() - x - 1);
     //println(c2);
     if (48 <= int(c2) && int(c2) <= 57) {
-      c = colors1[int(c2) - 48];}
-    else {
+      c = colors1[int(c2) - 48];
+    } else {
       if (97 <= int(c2) && int(c2) <= 122) {
         c = colors1[int(c2) - 87];
       }
@@ -140,7 +140,7 @@ void mousePressed() {
     }
   } else {
     if (mouseButton == RIGHT) {
-      println(frameCount + offset, s, d, n0, n1);
+      println(frameCount + offset - 2, s, d, n0, n1 - 1);
       println(frameName);
       saveFrame(frameName);
     }
