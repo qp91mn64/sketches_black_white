@@ -116,7 +116,7 @@ void draw() {
   if (b == (width / cellWidth - (width / cellWidth) % distance) - distance && d == height / cellHeight - 1) {
     println(frameCount + offset - 1, s, d, n0, n1);
     println(frameName);
-    //saveFrame(frameName);
+    saveFrame(frameName);
   }
   d++;
   n1++;
@@ -134,7 +134,7 @@ void mousePressed() {
     if (mouseButton == RIGHT) {
       println(frameCount + offset - 2, s, d, n0, n1 - 1);
       println(frameName);
-      //saveFrame(frameName);
+      saveFrame(frameName);
     }
   }
 }
