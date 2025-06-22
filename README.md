@@ -8,8 +8,9 @@
 - base_3.pde：第三进制
 - base_4.pde：四进制的情形
 - random_black_white.pde：随机
-- complementary.pde:互补
-- transposition.pde:转置
+- complementary.pde：互补
+- transposition.pde：转置
+- static_images.pde：静态图形
 
 ## 代码简介
 
@@ -196,6 +197,16 @@
 与原来的代码相比
 所有涉及行列的变量名称都互换，即width与height互换，cellWidth与cellHeight互换，
 所有直接画图形的函数传参行列互换，这里把rect()中的横纵坐标参数位置互换，宽度和高度参数位置互换。
+
+### 静态图形
+
+之前的代码都是一行一行（一列一列）地动态刷新
+现在不动态刷新，直接画满整个画布再显示
+点击鼠标左键更新画布
+点击鼠标右键保存图形
+能得到原来画满再保存得到的图形
+不能得到画到一半的效果
+但是画的更快
 
 ## 主要参数
 
