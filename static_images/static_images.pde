@@ -109,13 +109,9 @@ void reverse_colorString() {
   println("按位取反之后:", colorString);
 }
 void reverse_color_0_color_1() {
-  if (color_0 == 255) {
-    color_0 = 0;
-    color_1 = 255;
-  } else {
-    color_0 = 255;
-    color_1 = 0;
-  }
+  color color2 = color_0;
+  color_0 = color_1;
+  color_1 = color2;
   for (int a = 0; a < base; a++) {
     char c2 = colorString.charAt(base - a - 1);
     if (c2 == '1') {
