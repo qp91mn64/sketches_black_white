@@ -27,13 +27,13 @@ int base = 19;  // 进制，似乎最多只能支持36进制，基数更大会�
 int offset = 110000000;  // 数值从这里开始一帧加1
 int n0 = offset;  // 当前图上对应数值最小值，不可能小于offset
 int n1 = offset;  // 除了初始值以外，n1-1才是当前图上对应数值最大值
-int[] colors1 = new int[base];  // 对应颜色数组
+int[] colorArray = new int[base];  // 对应颜色数组
 String s;  //把十进制数值转换成指定进制字符串
 String imageName;  // 保存的图片名称
-String color1 = "0000000001010000100";  // 颜色对应的字符串，这里最左边是最大的数字对应的颜色，最右边是0对应的颜色
+String colorString = "0000000001010000100";  // 颜色对应的字符串，这里最左边是最大的数字对应的颜色，最右边是0对应的颜色
 int c = 0;
-color c0 = 255;  // 0对应白色
-color c1 = 0;  // 1对应黑色
+color color_0 = 255;  // 0对应白色
+color color_1 = 0;  // 1对应黑色
 color backgroundColor = 255;
 void setup() {
   smooth();
@@ -42,11 +42,11 @@ void setup() {
   background(backgroundColor);
   noLoop();
   for (int a = 0; a < base; a++) {
-    char c2 = color1.charAt(base - a - 1);
-    if (c2 == '1') {
-      colors1[a] = c1;
+    char char1 = colorString.charAt(base - a - 1);
+    if (char1 == '1') {
+      colorArray[a] = color_1;
     } else {
-      colors1[a] = c0;
+      colorArray[a] = color_0;
     }
   }
 }
@@ -62,10 +62,10 @@ void draw() {
         char c1 = s.charAt(s.length() - x - 1);
         //println(c1);
         if (48 <= int(c1) && int(c1) <= 57) {
-          c = colors1[int(c1) - 48];
+          c = colorArray[int(c1) - 48];
         } else {
           if (97 <= int(c1) && int(c1) <= 122) {
-            c = colors1[int(c1) - 87];
+            c = colorArray[int(c1) - 87];
           }
         }
         fill(c);
@@ -74,7 +74,7 @@ void draw() {
       n1++;
     }
   }
-  imageName = String.format("黑和白的舞蹈_静态图形_大小%dx%d_格子尺寸%dx%d_%d进制_数值对应的颜色%s_数字范围%d到%d_0的颜色%d_1的颜色%d_背景颜色%d.png", width/cellWidth, height/cellHeight, cellWidth, cellHeight, base, color1, n0, n1 - 1, c0, c1, backgroundColor);
+  imageName = String.format("黑和白的舞蹈_静态图形_大小%dx%d_格子尺寸%dx%d_%d进制_数值对应的颜色%s_数字范围%d到%d_0的颜色%d_1的颜色%d_背景颜色%d.png", width/cellWidth, height/cellHeight, cellWidth, cellHeight, base, colorString, n0, n1 - 1, color_0, color_1, backgroundColor);
   println(s, n0, n1 - 1);
   println(imageName);
 }
@@ -88,55 +88,55 @@ void mousePressed() {
     }
   }
 }
-void reverse_color1() {
+void reverse_colorString() {
   char[] c = new char[base];
   for (int x = 0; x < base; x++) {
-    if (color1.charAt(x) == '0') {
+    if (colorString.charAt(x) == '0') {
       c[x] = '1';
     } else {
       c[x] = '0';
     }
   }
-  color1 = new String(c);
+  colorString = new String(c);
   for (int a = 0; a < base; a++) {
-    char c2 = color1.charAt(base - a - 1);
+    char c2 = colorString.charAt(base - a - 1);
     if (c2 == '1') {
-      colors1[a] = c1;
+      colorArray[a] = color_1;
     } else {
-      colors1[a] = c0;
+      colorArray[a] = color_0;
     }
   }
-  println("按位取反之后:", color1);
+  println("按位取反之后:", colorString);
 }
-void reverse_c0_c1() {
-  if (c0 == 255) {
-    c0 = 0;
-    c1 = 255;
+void reverse_color_0_color_1() {
+  if (color_0 == 255) {
+    color_0 = 0;
+    color_1 = 255;
   } else {
-    c0 = 255;
-    c1 = 0;
+    color_0 = 255;
+    color_1 = 0;
   }
   for (int a = 0; a < base; a++) {
-    char c2 = color1.charAt(base - a - 1);
+    char c2 = colorString.charAt(base - a - 1);
     if (c2 == '1') {
-      colors1[a] = c1;
+      colorArray[a] = color_1;
     } else {
-      colors1[a] = c0;
+      colorArray[a] = color_0;
     }
   }
-  println("1对应", c1, " 0对应", c0);
+  println("1对应", color_1, " 0对应", color_0);
 }
 void keyPressed() {
   switch (key) {
-  case '1':
-    reverse_color1();
-    n1 = n0;
-    redraw();
-    break;
-  case '2':
-    reverse_c0_c1();
-    n1 = n0;
-    redraw();
-    break;
+    case '1':
+      reverse_colorString();
+      n1 = n0;
+      redraw();
+      break;
+    case '2':
+      reverse_color_0_color_1();
+      n1 = n0;
+      redraw();
+      break;
   }
 }

@@ -58,14 +58,14 @@ int base = int(random(2, 37));  // 进制，似乎最多只能支持36进制，�
 int offset;  // 数值从这里开始一帧加1
 int n0;  // 当前图上对应数值最小值，不可能小于offset
 int n1;  // 当前图上对应数值最大值
-int[] colors1 = new int[base];  // 对应颜色数组
+int[] colorArray = new int[base];  // 对应颜色数组
 String s;  //把十进制数值转换成指定进制字符串
 String frameName;  // 保存的图片名称
-String color1= "";  // 颜色对应的字符串，这里最左边是最大的数字对应的颜色，最右边是0对应的颜色
+String colorString = "";  // 颜色对应的字符串，这里最左边是最大的数字对应的颜色，最右边是0对应的颜色
 boolean r = true;
 int c = 0;
-color c0 = 255;  // 0对应白色
-color c1 = 0;  // 1对应黑色
+color color_0 = 255;  // 0对应白色
+color color_1 = 0;  // 1对应黑色
 color backgroundColor = 255;
 void setup() {
   char[] colors = new char[base];
@@ -78,18 +78,18 @@ void setup() {
     float f = random(1);
     if (f < 0.5) {
       colors[base-1-a] = '1';
-      colors1[a] = c1;
+      colorArray[a] = color_1;
     } else {
       colors[base-1-a] = '0';
-      colors1[a] = c0;
+      colorArray[a] = color_0;
     }
   }
   int a = int(random(0, 100)) + 1;
   offset = (a-1) - (a-1)*(a-1)/2 + (a-1)*(a-1)*(a-1)/3 - (a-1)*(a-1)*(a-1)*(a-1)/4 + (a-1)*(a-1)*(a-1)*(a-1)/5*(a-1) - 1 ;
   n0 = offset;
   n1 = offset;
-  color1 = new String(colors);
-  println(color1);
+  colorString = new String(colors);
+  println(colorString);
   println(base, maxNumber, offset, cellWidth, cellHeight);
 }
 void draw() {
@@ -110,16 +110,16 @@ void draw() {
     char c2 = s.charAt(s.length() - x - 1);
     //println(c2);
     if (48 <= int(c2) && int(c2) <= 57) {
-      c = colors1[int(c2) - 48];
+      c = colorArray[int(c2) - 48];
     } else {
       if (97 <= int(c2) && int(c2) <= 122) {
-        c = colors1[int(c2) - 87];
+        c = colorArray[int(c2) - 87];
       }
     }
     fill(c);
     rect(cellWidth*(x+b), d * cellHeight, cellWidth, cellHeight);
   }
-  frameName = String.format("黑和白的舞蹈_大小%dx%d_格子尺寸%dx%d_%d进制_数值对应的颜色%s_数字范围%d到%d_0的颜色%d_1的颜色%d_背景颜色%d.png", width/cellWidth, height/cellHeight, cellWidth, cellHeight, base, color1, n0, frameCount + offset - 1, c0, c1, backgroundColor);
+  frameName = String.format("黑和白的舞蹈_大小%dx%d_格子尺寸%dx%d_%d进制_数值对应的颜色%s_数字范围%d到%d_0的颜色%d_1的颜色%d_背景颜色%d.png", width/cellWidth, height/cellHeight, cellWidth, cellHeight, base, colorString, n0, frameCount + offset - 1, color_0, color_1, backgroundColor);
   //println(b, d);
   if (b == (width / cellWidth - (width / cellWidth) % distance) - distance && d == height / cellHeight - 1) {
     println(frameCount + offset - 1, s, d, n0, n1);
