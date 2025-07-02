@@ -1,5 +1,5 @@
 /**
-  2025/6/29 - 2025/7/1
+  2025/6/29 - 2025/7/2
   黑和白的舞蹈
   p * n
   
@@ -59,7 +59,7 @@ void draw() {
     }
   }
   //println(s);
-  n0 = max(offset, n1 - (height / cellHeight) * (width / cellWidth / distance) + 1);
+  n0 = max(offset, n1 - (height / cellHeight) * max(1, width / cellWidth / distance) + 1);
   int l = min(s.length(), maxNumber, distance);
   for (int x = 0; x < l; x++) {
     int c;
@@ -73,7 +73,7 @@ void draw() {
   }
   frameName = String.format("黑和白的舞蹈_%dn_画布大小%dx%d_格子尺寸%dx%d_n的范围%d到%d_0的颜色255_1的颜色0_背景颜色%d.png", p, width, height, cellWidth, cellHeight, n0, n1, backgroundColor);
   //println(b, d);
-  if (b == (width / cellWidth - (width / cellWidth) % distance) - distance && d == height / cellHeight - 1) {
+  if (b >= (width / cellWidth - (width / cellWidth) % distance) - distance && d == height / cellHeight - 1) {
     println(s, n0, n1, n0 * p, n1 * p);
     println(frameName);
     saveFrame(frameName);

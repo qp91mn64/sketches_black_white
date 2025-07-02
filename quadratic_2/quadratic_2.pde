@@ -1,5 +1,5 @@
 /**
-  2025/6/30
+  2025/6/30 - 2025/7/2
   黑和白的舞蹈
   p * n * n
   
@@ -24,7 +24,7 @@ boolean r = true;
 color backgroundColor = 255;
 BigInteger offset = new BigInteger("0");  // 初始值
 BigInteger n0 = offset;  // 当前图上n最小值
-BigInteger n1 = offset;  // 当前图上n最大值
+BigInteger n1 = offset.subtract(new BigInteger("1"));  // 当前图上n最大值
 BigInteger p = BigInteger.valueOf(int(random(1000)) * 2 + 1);  // 二次项系数
 void setup() {
   smooth();
@@ -35,6 +35,7 @@ void setup() {
   println(p, p.toString(2));
 }
 void draw() {
+  n1 = n1.add(new BigInteger("1"));
   BigInteger n2 = n1.multiply(n1).multiply(p);
   s = n2.toString(2);
   if (cellHeight * (d + 1) > height) {
@@ -45,8 +46,7 @@ void draw() {
     }
   }
   //println(n1, n2, s);
-  BigInteger zero = new BigInteger("0");
-  n0 = zero.max(n1.subtract(BigInteger.valueOf((height / cellHeight) * (width / cellWidth / distance) - 1)));
+  n0 = offset.max(n1.subtract(BigInteger.valueOf((height / cellHeight) * max(1, width / cellWidth / distance) - 1)));
   int l = min(s.length(), maxNumber, distance);
   for (int x = 0; x < l; x++) {
     int c;
@@ -60,13 +60,12 @@ void draw() {
   }
   frameName = String.format("黑和白的舞蹈_%dn2_画布大小%dx%d_格子尺寸%dx%d_n的范围%d到%d_0的颜色255_1的颜色0_背景颜色%d.png", p, width, height, cellWidth, cellHeight, n0, n1, backgroundColor);
   //println(b, d);
-  if (b == (width / cellWidth - (width / cellWidth) % distance) - distance && d == height / cellHeight - 1) {
+  if (b >= (width / cellWidth - (width / cellWidth) % distance) - distance && d == height / cellHeight - 1) {
     println(s, n0, n1, n0.multiply(n0).multiply(p), n1.multiply(n1).multiply(p));
     println(frameName);
     saveFrame(frameName);
   }
   d++;
-  n1 = n1.add(new BigInteger("1"));
 }
 void mousePressed() {
   if (mouseButton == LEFT) {

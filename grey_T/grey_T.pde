@@ -1,5 +1,5 @@
 /**
- 2025/6/29 
+ 2025/6/29 - 2025/7/2
  黑和白的舞蹈
  
  灰色
@@ -59,7 +59,7 @@ void draw() {
       b = 0;
     }
   }
-  n0 = max(offset, frameCount + offset - (width/cellWidth) * (height/distance/cellHeight));
+  n0 = max(offset, frameCount + offset - (width/cellWidth) * max(1, height/distance/cellHeight));
   int l = min(s.length(), maxNumber, distance);
   for (int x = 0; x < l; x++) {
     char c1 = s.charAt(s.length() - x - 1);
@@ -74,7 +74,7 @@ void draw() {
     rect(cellWidth * d, cellHeight * (x + b), cellWidth, cellHeight);
   }
   frameName = String.format("黑和白的舞蹈_灰色_转置_大小%dx%d_格子尺寸%dx%d_%d进制_数值对应的颜色%s_数字范围%d到%d_0的颜色%d_1的颜色%d_背景颜色%d.png", width/cellWidth, height/cellHeight, cellWidth, cellHeight, base, colorString, n0, frameCount + offset - 1, color_0, color_1, backgroundColor);
-  if (b == (height / cellHeight - (height / cellHeight) % distance) - distance && d == width / cellWidth - 1) {
+  if (b >= (height / cellHeight - (height / cellHeight) % distance) - distance && d == width / cellWidth - 1) {
     println(frameCount + offset - 1, s, d, n0, n1);
     println(frameName);
     saveFrame(frameName);

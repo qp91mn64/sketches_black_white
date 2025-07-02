@@ -1,5 +1,5 @@
 /**
- 2025/6/28
+ 2025/6/28 - 2025/7/2
  黑和白的舞蹈
  
  随机第三颜色
@@ -48,7 +48,7 @@ void draw() {
     }
     //background(255);
   }
-  n0 = max(offset, frameCount + offset - (height/cellHeight) * (width/distance/cellWidth));
+  n0 = max(offset, frameCount + offset - (height/cellHeight) * max(1, width/distance/cellWidth));
   int l = min(s.length(), maxNumber, distance);
   for (int x = 0; x < l; x++) {
     char c1 = s.charAt(s.length() - x - 1);
@@ -63,7 +63,7 @@ void draw() {
     rect(cellWidth*(x+b), d * cellHeight, cellWidth, cellHeight);
   }
   frameName = String.format("黑和白的舞蹈_随机第三颜色_大小%dx%d_格子尺寸%dx%d_%d进制_数字范围%d到%d_背景颜色%d.png", width/cellWidth, height/cellHeight, cellWidth, cellHeight, base, n0, frameCount + offset - 1, backgroundColor);
-  if (b == (width / cellWidth - (width / cellWidth) % distance) - distance && d == height / cellHeight - 1) {
+  if (b >= (width / cellWidth - (width / cellWidth) % distance) - distance && d == height / cellHeight - 1) {
     println(frameCount + offset - 1, s, d, n0, n1);
     println(frameName);
     saveFrame(frameName);

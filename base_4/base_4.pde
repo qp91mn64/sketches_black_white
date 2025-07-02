@@ -91,7 +91,7 @@ void draw() {
     }
     //background(255);
   }
-  n0 = max(offset, frameCount + offset - (height/cellHeight) * (width/distance/cellWidth));
+  n0 = max(offset, frameCount + offset - (height/cellHeight) * max(1, width/distance/cellWidth));
   int l = min(s.length(), maxNumber, distance);
   for (int x = 0; x < l; x++) {
     char c1 = s.charAt(s.length() - x - 1);
@@ -104,7 +104,7 @@ void draw() {
   }
   frameName = String.format("黑和白的舞蹈_大小%dx%d_格子尺寸%dx%d_%d进制_数值对应的颜色%s_数字范围%d到%d_0的颜色%d_1的颜色%d_背景颜色%d.png", width/cellWidth, height/cellHeight, cellWidth, cellHeight, base, colorString, n0, frameCount + offset - 1, color_0, color_1, backgroundColor);
   //println(b, d);
-  if (b == (width / cellWidth - (width / cellWidth) % distance) - distance && d == height / cellHeight - 1) {
+  if (b >= (width / cellWidth - (width / cellWidth) % distance) - distance && d == height / cellHeight - 1) {
     println(frameCount + offset - 1, s, d, n0, n1);
     println(frameName);
     saveFrame(frameName);
