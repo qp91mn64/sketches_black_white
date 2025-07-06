@@ -18,6 +18,7 @@
 - quadratic_1.pde：二次方
 - quadratic_2.pde：二次方的整数倍
 - quadratic_3.pde：二次函数 $ a_2n^2+a_1n+a_0 $
+- quadratic_4.pde：二次函数配方之后的式子 $ a_2(n+n_0)^2+a_0 $ 
 - exponential_1.pde：指数函数 $ p ^ n $
 
 ### 第三颜色系列
@@ -281,11 +282,13 @@ p随机取正奇数值对应quadratic_2.pde
 只需考虑p取奇数情形  
 
 二次项一次项常数项都有的情形对应quadratic_3.pde  
+配方之后的情形对应quadratic_4.pde  
+可以比较不同公式形式带来的差异  
 
 先计算n的二次函数值  
 再取二进制    
 offset的作用是可以直接看很后面的  
-  
+
 调用`java.math.BigInteger`计算更大的整数以免溢出 
 
 ### 指数函数 $ p ^ n $
