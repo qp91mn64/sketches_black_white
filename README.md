@@ -5,13 +5,21 @@
 ## 目前代码
 
 - black_white.pde：黑和白的舞蹈
+
+### 第三进制 base_3_black_white/
+
 - base_3.pde：第三进制
 - base_4.pde：四进制的情形
 - random_black_white.pde：随机
+
+### 不同效果 transformation_black_white/
+
 - complementary.pde：互补
 - transposition.pde：转置
 - static_images.pde：静态图形
 - static_T.pde：静态图形转置
+
+### 数学公式 math_black_white/
 
 - multiple_1.pde：整数倍
 - multiple_2.pde：整数倍加上常数项
@@ -24,7 +32,7 @@
 - power_3.pde：$ (a_1n+a_0)^p $ 
 - exponential_1.pde：指数函数 $ p ^ n $
 
-### 第三颜色系列
+### 第三颜色系列 color_3_black_white/
 
 - grey.pde：灰色
 - color_3.pde：第三颜色
