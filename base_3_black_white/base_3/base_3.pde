@@ -115,9 +115,9 @@ void setup() {
   for (int a = 0; a < base; a++) {
     char char1 = colorString.charAt(base - a - 1);
     if (char1 == '1') {
-      colorArray[a] = color_0;
-    } else {
       colorArray[a] = color_1;
+    } else {
+      colorArray[a] = color_0;
     }
   }
 }
