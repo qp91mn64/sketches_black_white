@@ -37,7 +37,6 @@
 - grey.pde：灰色
 - color_3.pde：第三颜色
 - color_3_random.pde：随机第三颜色
-
 - grey_T.pde：灰色，转置
 - color_3_T.pde：第三颜色，转置
 - color_3_random_T.pde：随机第三颜色，转置
@@ -46,6 +45,7 @@
 
 - nested_1.pde：嵌套
 - nested_2.pde：nested_1.pde基础上取指定进制
+- nested_3.pde：嵌套加上第三进制
 
 ## 代码简介
 
@@ -352,6 +352,11 @@ nested_2.pde：与nested_1.pde的不同之处是
 再转换进制时
 进制与第一次转换得到的位数无关
 便于画特定进制对应图形
+
+nested_3.pde：与nested_1.pde相比
+先转指定进制再用第三进制的方式得到转换字符串
+与第三进制相比
+转换字符串也是类似转换的结果
 
 ## 主要参数
 
