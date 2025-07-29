@@ -47,6 +47,7 @@
 - nested_1.pde：嵌套
 - nested_2.pde：nested_1.pde基础上取指定进制
 - nested_3.pde：嵌套加上第三进制
+- nested_4.pde：多次转换
 
 ## 代码简介
 
@@ -359,6 +360,12 @@ nested_3.pde：与nested_1.pde相比
 先转指定进制再用第三进制的方式得到转换字符串  
 与第三进制相比  
 转换字符串也是类似转换的结果  
+
+nested_4.pde：与nested_3.pde相比  
+增加参数count转换次数  
+多次转换
+每次的结果都作为下一次的转换字符串  
+而每次转换用的数值不变   
 
 ## 主要参数
 
