@@ -48,6 +48,7 @@
 - nested_2.pde：nested_1.pde基础上取指定进制
 - nested_3.pde：嵌套加上第三进制
 - nested_4.pde：多次转换
+- nested_5.pde：多次转换直到周期
 
 ## 代码简介
 
@@ -366,6 +367,10 @@ nested_4.pde：与nested_3.pde相比
 多次转换
 每次的结果都作为下一次的转换字符串  
 而每次转换用的数值不变   
+
+nested_5.pde：与nested_4.pde相比
+如果发现周期就停止转换
+同时能用颜色区分是否发现周期
 
 ## 主要参数
 
