@@ -1,5 +1,5 @@
 /**
- 2025/7/20 - 2025/7/24
+ 2025/7/20 - 2025/8/4
  黑和白的舞蹈
  
  嵌套
@@ -94,8 +94,7 @@ void draw() {
   }
   println(n1, conversionString2, conversionBase2, string2, numberString);  // 查看画到多少，进制，颜色字符串等信息
   n0 = max(offset, frameCount + offset - (height/cellHeight) * max(1, width/distance/cellWidth));
-  int l = min(string2.length(), maxDigits, distance);
-  for (int x = 0; x < l; x++) {
+  for (int x = 0; x < min(maxDigits, distance); x++) {
     try {
       char char1 = numberString.charAt(numberString.length() - x - nth);
       if (char1 == '1') {
